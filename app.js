@@ -13,14 +13,19 @@ require("dotenv/config");
 // for the authentication every time any rout is execute, he gonna check the authentication
 // app.use(auth)
 
+//  Import routes
+const postsRoute = require('./routes/posts')
+
+app.use('/posts', postsRoute)
+
 // ROUTES
 app.get("/", (req, res) => {
   res.send("We are on home");
 });
 
-app.get("/posts", (req, res) => {
-  res.send("We are on posts");
-});
+// app.get("/posts", (req, res) => {
+//   res.send("We are on posts");
+// });
 
 // Connect to DB
 
