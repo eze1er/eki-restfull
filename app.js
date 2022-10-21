@@ -3,7 +3,11 @@ const express = require("express");
 const app = express();
 
 const mongoose = require("mongoose");
+const bodyParser = require("body-parser");
 require("dotenv/config");
+
+app.use(bodyParser.json());
+
 // Middleware ( a function who is execute when the route is execute)
 
 // app.use('/posts', () => {
@@ -14,18 +18,16 @@ require("dotenv/config");
 // app.use(auth)
 
 //  Import routes
-const postsRoute = require('./routes/posts')
-const usersRoute = require('./routes/users')
+const postsRoute = require("./routes/posts");
+const usersRoute = require("./routes/users");
 
-app.use('/posts', postsRoute)
-app.use('/users', usersRoute)
+app.use("/posts", postsRoute);
+app.use("/users", usersRoute);
 
 // ROUTES
 app.get("/", (req, res) => {
   res.send("We are on home");
 });
-
-
 
 // app.get("/posts", (req, res) => {
 //   res.send("We are on posts");
